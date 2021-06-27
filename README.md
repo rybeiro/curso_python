@@ -374,6 +374,12 @@ São pequenos trechos de códigos que realizam tarefas especificas e bem definid
     - ERROR: ```def exponencial(numero=2, potencia):```
     - CORRETO: ```def exponecial(numero, potencia=2):```
 
+> ORDEM PARA DEFINIÇÃO DE PARÂMETROS NAS FUNÇOES
+1. Parâmetros obrigatórios
+2. Parâmetros \*args
+3. Parâmetros *default*
+4. Parâmetros \*\*kwargs
+
 # Escopo de variáveis
 Variáveis locais é predominante às globais dentro do bloco da função.
 - Variáveis globais, são declaradas FORA das funções e são acessíveis em qualquer lugar do programa.
@@ -401,6 +407,102 @@ def incrementa():
 ```
 
 > **ATENÇÃO EVITE O USO DE VARIÁVEIS GLOBAIS**
+
+# DOCSTRING
+Para documentar funções basta envolver entre três aspas duplas """ aqui você documenta """
+- Para acessar a documentação de uma função em python utilizamos a propriedade especial __doc__
+_ Podemos acessar também utilizando o help()
+
+**Exemplo docstring**
+
+```from docstring import funcao```
+
+```print(funcao.__doc__)```
+
+**Documentando a função exponencial()**
+
+```
+def exponecial(numero, potencia=2):
+   """
+   Função que retorna por padrão o quadrado de um determinado 'numero' ou a 'potência' informada.
+   :param numero: Número que desejamos aplicar a exponenciação.
+   :param potencia: Potência que queremos gerar o exponcial. Por padrão é 2.
+   :return: Retorna o exponencial de um 'numero' pela 'potencia'
+   """
+   return numero ** potencia
+```
+
+**Exibindo a documentação da função exponencial**
+
+```from docstring import exponencial```
+
+**usando __doc__**
+
+```print(exponencial.__doc__)```
+
+***usando o help()***
+
+```print(help(exponencial))```
+
+# \*ARGS transforma os parâmetros em uma *tuple()*
+- O *args nos possibilita receber **n** parâmetros.
+
+**Exemplo**
+
+```
+def soma(*args):
+   return sum(args)
+
+print(soma(1,2,3,4,5,6))
+```
+
+> IMPORTANTE: Se utilizar *args* para list(), tuple() ou set() temos que **desempacotar** para isso basta inserir o * antes do argumento.
+
+**Uso com *list(), tuple() ou set()***
+
+```
+def soma(*args):
+   return sum(args)
+
+print(soma([1,2,3,4,5,6])) #aqui vai gerar um erro
+
+#list<br>
+print(soma(*[1,2,3,4,5,6])) #o asterisco desempacota
+
+#tuple<br>
+print(soma(*[1,2,3,4,5,6])) #o asterisco desempacota
+
+#set<br>
+print(soma(*[1,2,3,4,5,6])) #o asterisco desempacota
+```
+
+# \*\*KWARGS transforma os parâmetros em um *dict()*
+- \*\*kwargs exige a utilização de parâmetros nomeados.
+
+**Exemplo simples**
+
+```
+def cores_favoritas(**kwargs):
+   for pessoa, cor in kwargs.items():
+       print(f'A cor favorita de {pessoa} é {cor}')
+
+print(cores_favoritas(marcos='azul', valquiria='verde', joaquim='preto'))
+```
+
+> IMPORTANTE: Para **desempacotar** o *kwargs* do *dict()* basta inserir ** antes do argumento.
+
+**Exemplo**
+
+```
+def exibir_nome(**kwargs):
+   return f"{kwargs['nome']} {kwargs['sobrenome']}"
+
+nomes = {nome='Fabio', sobrenome='Ribeiro'}
+print(exibir_nome(**nomes))
+```
+
+
+
 
 # Princípios
 - DRY - Don't Repeat yourself (Não repita seu código ou não repita você mesmo).
