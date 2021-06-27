@@ -115,7 +115,7 @@ while num < 10:
 
 ```
 
-# Collection | Coleções
+# Collections | Coleções
 **lista / list()** vetor/matriz são a mesma coisa que *array*. Em Python é dinâmico e podem receber qualquer tipo de dado como valor.
 
 ```lista = [] ou lista = list()```
@@ -356,6 +356,54 @@ Seria uma lista de alta performance. A diferença é que podemos inserir ou remo
 - Para mais métodos consulte o utilitário de ajuda.
 
 # Funções
+São pequenos trechos de códigos que realizam tarefas especificas e bem definidas. Funções podem ou não receber parâmentros de entrada e retornar ou não dados.
+
+- Existem função pre-definidas pela linguagem, exemplo: ```print()```
+- Uma função é definida a partir da palavra reservada *def*.
+- Nome de função deve ser definida com letras minúsculas. ```def nomefuncao():```
+- Nome composto deve-se separar por underline (*Snake case*). ```def nome_funcao():```
+- Bloco da função ou corpo da função deve ficar identado.
+- Usando a função ou executando a função: ```nome_funcao()```
+- Para retornar dados em uma função utilizamos a palavra *return*
+- *return* finaliza a execução da função.
+- Funções com parâmetros de entrada obrigatório. ```def funcao(numero)```
+    - **Parâmetro** são variáveis declaradas na definição de uma função
+    - **Argumentos** são dados passados na chamada da função
+- Função com parâmetros de entrada padrão *default paramters*. ```def exponencial(numero, potencia=2):```
+- OBS: Parâmetros com valor padrão DEVEM ser informados no final da declaração
+    - ERROR: ```def exponencial(numero=2, potencia):```
+    - CORRETO: ```def exponecial(numero, potencia=2):```
+
+# Escopo de variáveis
+Variáveis locais é predominante às globais dentro do bloco da função.
+- Variáveis globais, são declaradas FORA das funções e são acessíveis em qualquer lugar do programa.
+- Variáveis locais, são declaradas DENTRO das funções e só podem ser utilizadas dentro do bloco (escopo) da função.
+- Para utilizar uma variável global com mesmo nome de uma variável local é necessário informar ao Python utilizando a palavra reservada **global** antes da variável global.
+
+Exemplos:
+> USO ERRADO de variáveis globais com mesmo nome de variável local
+```
+total = 0
+
+def incrementa():
+    total = total + 1
+    return total
+```
+
+> USO CORRETO de variáveis globais com mesmo nome de variável local
+```
+total = 0
+
+def incrementa():
+    global total
+    total = total + 1
+    return total
+```
+
+> **ATENÇÃO EVITE O USO DE VARIÁVEIS GLOBAIS**
+
+# Princípios
+- DRY - Don't Repeat yourself (Não repita seu código ou não repita você mesmo).
 
 # Informações úteis
 - Concatenação utizar o símbolo +
