@@ -504,9 +504,10 @@ print(exibir_nome(**nomes))
 # List Comprehension
 - Utilizando List Comprehension nós podemos gerar uma nova lista com dados processados a partir de outro iterável.
 
-> Sintaxe: ```[dado for dado in iteravel]```
+> Sintaxe: [dado for dado in iteravel]
 
 **Exemplo**
+
 ```
 numeros = [1,2,3,4,5]
 res = [numero * 10 for numero in numeros]
@@ -517,6 +518,7 @@ print([amigo.title() for amigo in amigos])
 ```
 
 - Adicionando estruturas condicionais lógicas
+
 ```
 numeros = [1,2,3,4,5]
 pares = [numero for numero in numeros if numero % 2 == 0]
@@ -529,19 +531,24 @@ impares = [numero for numero in numeros if numero % 2]
 
 # Listas Aninhadas
 - Em algumas linguagens conhecido com Matrizes.
-```[[1,2,3], [4,5,6], [7,8,9]]``` Matriz: 3x3.
+
+```
+[[1,2,3], [4,5,6], [7,8,9]] # Matriz: 3x3.
+```
 - Acessando elementos
     - Loops em uma lista aninhada (matriz)
-        ```
-        listas = [[1,2,3], [4,5,6], [7,8,9]]
-        for lista in listas:
-            for num in lista:
-                print(num)
-        ```
-    - List Comprehesion
-        ```
-        [[print(valor) for valor in lista] for lista in listas]
-        ```
+
+```
+listas = [[1,2,3], [4,5,6], [7,8,9]]
+for lista in listas:
+    for num in lista:
+        print(num)
+```
+
+- List Comprehesion
+```
+[[print(valor) for valor in lista] for lista in listas]
+```
 
 # Dictionary Comprehension
 > Sintaxe: {chave:valor for valor in iterável}
@@ -553,7 +560,12 @@ print({chave: valor for numero in numeros})
 ```
 
 # Set Comprehension
-- *set()* ```conjunto = {1,2,3,4,5}```
+- *set()*
+```
+conjunto = {1,2,3,4,5}
+```
+
+**Exemplo**
 ```
 conjuntos = {1,2,3,4,5}
 print({conjunto ** 2 for conjunto in conjuntos})
